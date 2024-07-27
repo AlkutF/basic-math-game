@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Botón para regresar a la página anterior -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/teoria/opciones"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Explicación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Explicación de {{ tipoOperacion }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        <!-- Aquí puedes mostrar la explicación basada en el tipo de operación -->
+        {{ explicacion }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

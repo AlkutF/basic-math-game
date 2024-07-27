@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Opciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="goToOperaciones('suma')">Suma</ion-button>
+  <ion-button (click)="goToOperaciones('resta')">Resta</ion-button>
+  <ion-button (click)="goToOperaciones('multiplicacion')">Multiplicación</ion-button>
+  <ion-button (click)="goToOperaciones('division')">División</ion-button>
+</ion-content>

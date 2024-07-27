@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/practica/opciones"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Operaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Operación: {{ tipoOperacion }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Números: {{ numeros }}</p>
+      <p>Resultado: {{ resultado }}</p>
+      <p>Puntaje: {{ score }}</p>
+      <p>Tiempo restante: {{ tiempoRestante | number: '2.0' }} segundos</p>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-md="6" size-lg="3" *ngFor="let item of resultadosArray">
+            <ion-button expand="full" (click)="seleccionarValor(item)">
+              {{ item }}
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

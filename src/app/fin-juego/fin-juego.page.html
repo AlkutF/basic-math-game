@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Botón para volver a la página anterior -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Fin del Juego</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>¡Fin del Juego!</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Tu puntuación final es: {{ score }}</p>
+      <!-- Botón para volver a jugar -->
+      <ion-button (click)="volverAOpciones()" expand="full">Volver a jugar</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
