@@ -1,0 +1,7 @@
+{
+  "name": "basic-math-game",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
