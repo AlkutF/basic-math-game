@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ExplicacionPage implements OnInit {
   tipoOperacion: string='';
+  imagenes: string='';
   explicacion: string='';
 
   constructor(private route: ActivatedRoute) { }
@@ -23,15 +24,19 @@ export class ExplicacionPage implements OnInit {
     switch (this.tipoOperacion) {
       case 'suma':
         this.explicacion = 'La suma es la operación matemática que representa la adición de dos números.';
+        this.imagenes = 'assets/imagenes/suma.png';
         break;
       case 'resta':
         this.explicacion = 'La resta es la operación matemática que representa la sustracción de un número de otro.';
+        this.imagenes = 'assets/imagenes/resta.png';
         break;
       case 'multiplicacion':
         this.explicacion = 'La multiplicación es la operación matemática que representa el producto de dos números.';
+        this.imagenes = 'assets/imagenes/multiplicacion.png';
         break;
       case 'division':
         this.explicacion = 'La división es la operación matemática que representa la división de un número entre otro.';
+        this.imagenes = 'assets/imagenes/division.png';
         break;
       default:
         this.explicacion = 'Selecciona una operación para ver la explicación.';

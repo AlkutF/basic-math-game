@@ -1,18 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      App Matematica
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">  App Matematica</ion-title>
     </ion-toolbar>
   </ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-content>
 
-  <ion-button [routerLink]="['/practica/opciones']">Ir a Practica</ion-button>
-  <ion-button [routerLink]="['/teoria/opciones']">Ir a Teoria</ion-button>
+      <ion-button [routerLink]="['/practica/opciones']" expand="full">Ir a Practica</ion-button>
+    <ion-button [routerLink]="['/teoria/opciones']" expand="full">Ir a Teoria</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

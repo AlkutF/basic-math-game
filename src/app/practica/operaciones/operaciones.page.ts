@@ -17,6 +17,7 @@ export class OperacionesPage implements OnInit, OnDestroy {
   resultadosArray: number[] = [];
   rango: number = 10; // Rango para los números aleatorios cercanos al resultado
   score: number = 0; // Puntaje inicial
+  vidas: number = 3; // Vidas iniciales
   tiempoRestante: number = 120; // Tiempo en segundos (2 minutos)
   private destroy$ = new Subject<void>(); // Subject para la cancelación
 
@@ -30,6 +31,9 @@ export class OperacionesPage implements OnInit, OnDestroy {
   }
 
   iniciarJuego() {
+    this.score = 0;  // Reinicia el puntaje
+    this.vidas = 3;  // Reinicia las vidas
+    this.tiempoRestante = 120;  // Reinicia el tiempo
     this.generarOperacion();
     this.iniciarTemporizador();
   }
@@ -47,9 +51,33 @@ export class OperacionesPage implements OnInit, OnDestroy {
   generarOperacion() {
     this.num1 = this.generarNumeroAleatorio();
     this.num2 = this.generarNumeroAleatorio();
-    this.numeros = `${this.num1} y ${this.num2}`;
-    this.calcularResultado();
+    switch (this.tipoOperacion) {    
+      case 'suma':
+        this.resultado = this.num1 + this.num2;
+        this.numeros = `${this.num1} + ${this.num2}`;
+        this.calcularResultado();
+        break;
+      case 'resta':
+        this.resultado = this.num1 - this.num2;
+        this.numeros = `${this.num1} - ${this.num2}`;
+        this.calcularResultado();
+        break;
+      case 'multiplicacion':
+        this.resultado = this.num1 * this.num2;
+        this.numeros = `${this.num1} x ${this.num2}`;
+        this.calcularResultado();
+        break;
+      case 'division':
+        this.resultado = this.num1 / this.num2;
+        this.numeros = `${this.num1} / ${this.num2}`;
+        this.calcularResultado();
+        break;
+
+      default:
+        this.resultado = 0;
+        this.numeros = '';
   }
+}
 
   generarNumeroAleatorio(): number {
     return Math.floor(Math.random() * 100) + 1; 
@@ -102,8 +130,12 @@ export class OperacionesPage implements OnInit, OnDestroy {
   seleccionarValor(valor: number) {
     if (valor === this.resultado) {
       this.score++;
+    }else{
+      this.vidas--;
+      if (this.vidas === 0) {
+        this.finalizarJuego();
+      }
     }
-    console.log('Puntaje:', this.score);
     this.generarOperacion();
   }
 
