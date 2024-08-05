@@ -12,11 +12,15 @@
     </ion-toolbar>
   </ion-header>
 <ion-content>
-  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Nombre Aplicativo</ion-card-title>
+    </ion-card-header>
     <ion-card-content>
-
-      <ion-button [routerLink]="['/practica/opciones']" expand="full">Ir a Practica</ion-button>
-    <ion-button [routerLink]="['/teoria/opciones']" expand="full">Ir a Teoria</ion-button>
+      <img src="{{imagenes}}" alt="Imagen Portada">
+      <p>Esto es un texto generico que busque incentivar a los usuarios a practicar matematicas</p>
     </ion-card-content>
+  <ion-card>
+      <ion-button [routerLink]="['/practica/opciones']" >Ir a Practica</ion-button>
+      <ion-button [routerLink]="['/teoria/opciones']" >Ir a Teoria</ion-button>
   </ion-card>
 </ion-content>

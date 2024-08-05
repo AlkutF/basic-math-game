@@ -20,6 +20,7 @@ export class OperacionesPage implements OnInit, OnDestroy {
   vidas: number = 3; // Vidas iniciales
   tiempoRestante: number = 120; // Tiempo en segundos (2 minutos)
   private destroy$ = new Subject<void>(); // Subject para la cancelación
+  
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 

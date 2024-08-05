@@ -1,0 +1,47 @@
+  
+  .numeros-card {
+    position: relative;
+    height:180px; 
+    color: black;
+    border-radius: 15px;
+    border: 1px solid black;
+  }
+  
+  .numeros-text {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .vidas-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .vida-corazon {
+    width: 120px;
+    height: auto;
+  }
+  
+  .datos-card{
+    display: flex;
+  }
+
+  .score {
+    font-size: 25px; 
+    text-align: center;
+    margin-left: 20px;
+  }
+  
+  .tiempo {
+    font-size: 25px;
+    text-align: center;
+    margin-right: 20px;
+  }
+  
+  .score-tiempo{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: #000;
+  }

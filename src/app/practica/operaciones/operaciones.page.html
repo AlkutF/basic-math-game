@@ -8,25 +8,38 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Operación: {{ tipoOperacion }}</ion-card-title>
-    </ion-card-header>
+  <div class="score-tiempo">
+    <div class="score">
+        <p>{{score}}</p>
+    </div>
+    <div class="tiempo">
+        <p>{{ tiempoRestante | number: '2.0' }}</p>
+    </div>
+  </div>
+  
+   
+  <!-- Ion Card para los números -->
+  <ion-card class="numeros-card">
     <ion-card-content>
-      <p>Números: {{ numeros }}</p>
-      <p>Resultado: {{ resultado }}</p>
-      <p>Puntaje: {{ score }}</p>
-      <p>Vidas:{{vidas}}</p>
-      <p>Tiempo restante: {{ tiempoRestante | number: '2.0' }} segundos</p>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12" size-md="6" size-lg="3" *ngFor="let item of resultadosArray">
-            <ion-button expand="full" (click)="seleccionarValor(item)">
-              {{ item }}
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <p class="numeros-text">{{ numeros }}</p>
+      <div class="vidas-container">
+        <img *ngFor="let corazon of [].constructor(vidas); let i = index" 
+             src="assets/imagenes/Vidas.png" 
+             alt="Corazón" 
+             class="vida-corazon">
+      </div>
     </ion-card-content>
   </ion-card>
+
+  <!-- Elementos de información en la parte superior -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" size-lg="3" *ngFor="let item of resultadosArray">
+        <ion-button expand="full" (click)="seleccionarValor(item)">
+          {{ item }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
