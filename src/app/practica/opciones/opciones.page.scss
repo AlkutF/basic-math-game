@@ -10,6 +10,7 @@
   
   ion-card {
     background-color: rgba(255, 255, 255, 0.8); /* Color blanco con 80% de opacidad */
+    
   }
 
   ion-card p{
@@ -31,6 +32,7 @@
     background: url('/assets/imagenes/Villanos_Fondo.jpg') no-repeat center center;
     background-size: cover;
     z-index: -1; /* Asegura que el fondo esté detrás del contenido */
+    
   }
 
   .custom-button {
@@ -40,5 +42,5 @@
     width: 80%;
     margin-left: 10%;
     text-transform: none;  
+    font-family: 'Press Start 2P', cursive; 
   }
-  

@@ -1,3 +1,7 @@
+
+
+
+
 ion-header {
   background-color: #51A0B7;
 }
@@ -9,6 +13,7 @@ ion-toolbar {
 
 ion-content {
   --background: #51A0B7;
+  font-family: 'Press Start 2P', cursive; 
 }
 
 
@@ -16,7 +21,9 @@ ion-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  text-align: center;
+  width: 80%;
+  margin-left: 10%;
 }
 
 
@@ -27,4 +34,5 @@ ion-content {
   width: 80%;
   margin-left: 10%;
   text-transform: none;  
+  font-family: 'Press Start 2P', cursive; 
 }

@@ -21,6 +21,8 @@ export class OperacionesPage implements OnInit, OnDestroy {
   tiempoRestante: number = 120; // Tiempo en segundos (2 minutos)
   estrella:string = '/assets/imagenes/estrella.png';
   reloj:string = '/assets/imagenes/reloj.png';
+  villano:string = '';
+  Condicion_Victoria:string = '';
   private destroy$ = new Subject<void>(); // Subject para la cancelación
   
 
@@ -58,22 +60,30 @@ export class OperacionesPage implements OnInit, OnDestroy {
       case 'suma':
         this.resultado = this.num1 + this.num2;
         this.numeros = `${this.num1} + ${this.num2}`;
+        this.villano = '/assets/villains/suma.png';
+        this.Condicion_Victoria = 'Para derrorar a Sumara debes sumar un total de 50 puntos , ten en cuenta que el enemigo te la podra mas dificil a mas puntos tengas si logras vencerlo antes de que se acabe el tiempo habras ganado'; 
         break;
       case 'resta':
         this.resultado = this.num1 - this.num2;
         this.numeros = `${this.num1} - ${this.num2}`;
+        this.villano = '/assets/villains/resta.png';
+        this.Condicion_Victoria = 'Para derrorar a Resterom debes sumar un total de 50 puntos , ten en cuenta que el enemigo te la podra mas dificil a mas puntos tengas si logras vencerlo antes de que se acabe el tiempo habras ganado'; 
         break;
       case 'multiplicacion':
         this.resultado = this.num1 * this.num2;
         this.numeros = `${this.num1} x ${this.num2}`;
+        this.villano = '/assets/villains/multiplicacion.png';
+        this.Condicion_Victoria = 'Para derrorar a Multiplex debes sumar un total de 50 puntos , ten en cuenta que el enemigo te la podra mas dificil a mas puntos tengas si logras vencerlo antes de que se acabe el tiempo habras ganado'; 
         break;
       case 'division':
         // Asegura que la división sea exacta y que no haya división por cero
         if (this.num2 === 0) {
           this.num2 = 1; // Cambia el divisor a 1 si es 0
         }
-        this.resultado = parseFloat((this.num1 / this.num2).toFixed(2));
+        this.resultado = parseFloat((this.num1 / this.num2).toFixed(1));
         this.numeros = `${this.num1} / ${this.num2}`;
+        this.villano = '/assets/villains/division.png';
+        this.Condicion_Victoria = 'Para derrorar a la Divisora debes sumar un total de 50 puntos , ten en cuenta que el enemigo te la podra mas dificil a mas puntos tengas si logras vencerlo antes de que se acabe el tiempo habras ganado'; 
         break;
       default:
         this.resultado = 0;
@@ -85,7 +95,8 @@ export class OperacionesPage implements OnInit, OnDestroy {
   
 
   generarNumeroAleatorio(): number {
-    return Math.floor(Math.random() * 9) + 1; 
+    const max = this.score > 40 ? 100 : 10; // Ajusta el máximo basado en el puntaje
+    return Math.floor(Math.random() * (max - 1)) + 1; 
   }
 
   calcularResultado() {
@@ -100,7 +111,7 @@ export class OperacionesPage implements OnInit, OnDestroy {
         this.resultado = this.num1 * this.num2;
         break;
       case 'division':
-        this.resultado = this.num2 !== 0 ? parseFloat((this.num1 / this.num2).toFixed(2)) : 0;
+        this.resultado = this.num2 !== 0 ? parseFloat((this.num1 / this.num2).toFixed(1)) : 0;
         break;
       default:
         this.resultado = 0;
@@ -135,7 +146,11 @@ export class OperacionesPage implements OnInit, OnDestroy {
   seleccionarValor(valor: number) {
     if (valor === this.resultado) {
       this.score++;
-    }else{
+      if (this.score >= 50 && this.tiempoRestante > 0) {
+        this.mostrarVictoria(); 
+        return;
+      }
+    } else {
       this.vidas--;
       if (this.vidas === 0) {
         this.finalizarJuego();
@@ -143,6 +158,11 @@ export class OperacionesPage implements OnInit, OnDestroy {
     }
     this.generarOperacion();
   }
+  
+  mostrarVictoria() {
+    console.log('¡Has ganado!');
+  }
+  
 
   finalizarJuego() {
     this.destroy$.next();

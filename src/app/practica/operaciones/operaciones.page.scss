@@ -9,6 +9,7 @@
 .score, .tiempo {
   display: flex;
   align-items: center; /* Alinea verticalmente el contenido al centro */
+  font-family: 'Press Start 2P', cursive; 
 }
 
 .score img{
@@ -38,6 +39,7 @@
   color: black;
   border-radius: 15px;
   border: 1px solid black;
+  font-family: 'Press Start 2P', cursive; 
 }
 
 .numeros-text {
@@ -58,16 +60,26 @@
 
 .datos-card {
   display: flex;
+  
 }
 
-ion-button.custom-button::part(native) {
-  border-radius: 10px;
-  background: rgba(59, 59, 59, 0.282); /* Fondo semitransparente */
-  color: #fff;
-  border: 1px solid #fff;
-  font-size: 26px;
+.custom-button {
+  width: 100%; /* Asegura que el botón ocupe todo el ancho de su columna */
+  font-family: 'Press Start 2P', cursive; /* Aplica la fuente deseada */
+  --border-radius: 10px; /* Ajusta el radio del borde del botón */
+  --background: rgba(255, 244, 244, 0.553); /* Fondo semitransparente */
+  --color: #000; /* Color del texto del botón */
+  --border: 1px solid #fff; /* Borde del botón */
+  font-size: 18px; /* Tamaño de la fuente del botón */
 }
 
+ion-grid {
+  --ion-grid-padding: 0; /* Elimina el padding del grid si es necesario */
+}
+
+ion-row {
+  margin-bottom: 10px; /* Espacio entre las filas si es necesario */
+}
 .indicaciones {
   font-size: 10px;
   margin: 15px;
@@ -91,15 +103,25 @@ ion-content {
   --padding-bottom: 0;
 }
 
-ion-card.numeros-card {
-  border-radius: 15px;
-  border: 1px solid black;
-  overflow: hidden; /* Asegura que los bordes redondeados se apliquen correctamente */
+
+.card-avatar{
+  width: 95%; 
+  height: 100px; 
+  overflow: hidden; 
+  display: flex;
 }
 
-.card-avatar {
-  width: 100px;
-  height: 100px; 
-  border-radius: 20px;
-  margin: 0 auto; 
+.villano-img {
+  width: 100%;
+  height: 100%; 
+  object-fit: cover; 
+}
+.card-avatar p{
+  text-align: center;
+  justify-content: center;
+  font-size: 12px;
+  margin-left: 0px;
+  color: #000;
+  margin-right: 30px;
+  margin-top: 20px;
 }

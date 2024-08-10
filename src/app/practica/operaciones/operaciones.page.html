@@ -31,15 +31,15 @@
         </div>
       </ion-card-content>
     </ion-card>
-    <ion-card>
-      <ion-avatar class="card-avatar">
-        <img src="" alt="Multiplex">
+    <ion-card class="card-avatar"> 
+      <ion-avatar class="villano-img ">
+        <img src="{{villano}}" alt="Villano">
       </ion-avatar>
-      <p class="villano-description">Multiplex es famoso por su habilidad para multiplicar números con eficiencia y se considera un campeón invicto.</p>
+      <p>{{Condicion_Victoria}}</p>
     </ion-card>
     <ion-grid>
       <ion-row>
-        <ion-col *ngFor="let item of resultadosArray">
+        <ion-col size="6" *ngFor="let item of resultadosArray">
           <ion-button class="custom-button" (click)="seleccionarValor(item)">
             {{ item }}
           </ion-button>
@@ -49,3 +49,5 @@
     
   </div>
 </ion-content>
+
+
