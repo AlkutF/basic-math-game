@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-explicacion',
@@ -7,11 +7,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./explicacion.page.scss'],
 })
 export class ExplicacionPage implements OnInit {
-  tipoOperacion: string='';
-  imagenes: string='';
-  explicacion: string='';
+  tipoOperacion: string = '';
+  imagenes: string = '';
+  explicacion: string = '';
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -41,5 +41,9 @@ export class ExplicacionPage implements OnInit {
       default:
         this.explicacion = 'Selecciona una operación para ver la explicación.';
     }
+  }
+
+  goToOperaciones(operacion: string) {
+    this.router.navigate(['/practica/operaciones'], { queryParams: { tipo: operacion } });
   }
 }

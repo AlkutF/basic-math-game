@@ -3,22 +3,77 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Practica: Opciones</ion-title>
+    <ion-title>Enemigos</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Selecciona una operación</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <!-- Botones para seleccionar la operación -->
-      <ion-button (click)="goToOperaciones('suma')"  expand="full">Suma</ion-button>
-      <ion-button (click)="goToOperaciones('resta')"  expand="full">Resta</ion-button>
-      <ion-button (click)="goToOperaciones('multiplicacion')"  expand="full">Multiplicación</ion-button>
-      <ion-button (click)="goToOperaciones('division')"  expand="full">División</ion-button>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+  <div class="background-container"></div>
 
+  <ion-grid>
+    <ion-row>
+      <!-- Primer Card -->
+      <ion-col size="6" size-md="4" size-lg="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="center">Sumara, la Recolectora</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-avatar class="card-avatar">
+              <img src="{{imagensuma}}" alt="Sumara">
+            </ion-avatar>
+            <p class="villano-description">Sumara es conocida por su habilidad para recolectar números rápidamente y te reta a superarlo.</p>
+            <ion-button class="custom-button" (click)="goToOperaciones('suma')">Retar</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Segundo Card -->
+      <ion-col size="6" size-md="4" size-lg="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Resteron, el Descontador</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-avatar class="card-avatar">
+              <img src="{{imagenresta}}" alt="Resteron">
+            </ion-avatar>
+            <p class="villano-description">Resteron puede restar con gran precisión y rapidez presumiendo de ello, es momento de derrotarla.</p>
+            <ion-button class="custom-button" (click)="goToOperaciones('resta')">Retar</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Tercer Card -->
+      <ion-col size="6" size-md="4" size-lg="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Multiplex, el Expansor</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-avatar class="card-avatar">
+              <img src="{{imagenmultiplicacion}}" alt="Multiplex">
+            </ion-avatar>
+            <p class="villano-description">Multiplex es famoso por su habilidad para multiplicar números con eficiencia y se considera un campeón invicto.</p>
+            <ion-button class="custom-button"  (click)="goToOperaciones('multiplicacion')">Retar</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Cuarto Card -->
+      <ion-col size="6" size-md="4" size-lg="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Divisora, la Partidora</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-avatar class="card-avatar">
+              <img src="{{imagendivision}}" alt="Divisora">
+            </ion-avatar>
+            <p class="villano-description">Divisora es experta en dividir números de manera precisa hasta el día de hoy nadie la ha superado, ¿serás el primero?</p>
+            <ion-button class="custom-button" (click)="goToOperaciones('division')">Retar</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

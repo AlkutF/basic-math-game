@@ -7,8 +7,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./opciones.page.scss'],
 })
 export class OpcionesPage {
+  imagensuma:string='';
+  imagenresta:string='';
+  imagenmultiplicacion:string='';
+  imagendivision:string='';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    this.imagensuma = 'assets/villains/suma.png';
+    this.imagenresta = 'assets/villains/resta.png';
+    this.imagenmultiplicacion = 'assets/villains/multiplicacion.png';
+    this.imagendivision = 'assets/villains/division.png';
+   }
 
   irAExplicacion(tipoOperacion: string) {
     // Navega a la página de explicación con el tipo de operación como parámetro

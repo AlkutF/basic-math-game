@@ -19,11 +19,12 @@ export class OperacionesPage implements OnInit, OnDestroy {
   score: number = 0; // Puntaje inicial
   vidas: number = 3; // Vidas iniciales
   tiempoRestante: number = 120; // Tiempo en segundos (2 minutos)
+  estrella:string = '/assets/imagenes/estrella.png';
+  reloj:string = '/assets/imagenes/reloj.png';
   private destroy$ = new Subject<void>(); // Subject para la cancelación
   
 
   constructor(private route: ActivatedRoute, private router: Router) { }
-
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.tipoOperacion = params['tipo'];
@@ -52,36 +53,39 @@ export class OperacionesPage implements OnInit, OnDestroy {
   generarOperacion() {
     this.num1 = this.generarNumeroAleatorio();
     this.num2 = this.generarNumeroAleatorio();
-    switch (this.tipoOperacion) {    
+  
+    switch (this.tipoOperacion) {
       case 'suma':
         this.resultado = this.num1 + this.num2;
         this.numeros = `${this.num1} + ${this.num2}`;
-        this.calcularResultado();
         break;
       case 'resta':
         this.resultado = this.num1 - this.num2;
         this.numeros = `${this.num1} - ${this.num2}`;
-        this.calcularResultado();
         break;
       case 'multiplicacion':
         this.resultado = this.num1 * this.num2;
         this.numeros = `${this.num1} x ${this.num2}`;
-        this.calcularResultado();
         break;
       case 'division':
-        this.resultado = this.num1 / this.num2;
+        // Asegura que la división sea exacta y que no haya división por cero
+        if (this.num2 === 0) {
+          this.num2 = 1; // Cambia el divisor a 1 si es 0
+        }
+        this.resultado = parseFloat((this.num1 / this.num2).toFixed(2));
         this.numeros = `${this.num1} / ${this.num2}`;
-        this.calcularResultado();
         break;
-
       default:
         this.resultado = 0;
         this.numeros = '';
+        break;
+    }
+    this.guardarResultado();
   }
-}
+  
 
   generarNumeroAleatorio(): number {
-    return Math.floor(Math.random() * 100) + 1; 
+    return Math.floor(Math.random() * 9) + 1; 
   }
 
   calcularResultado() {

@@ -3,21 +3,77 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Teoría: Opciones</ion-title>
+    <ion-title>Enemigos</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Selecciona una operación</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <!-- Botones para seleccionar la operación -->
-      <ion-button (click)="irAExplicacion('suma')" expand="full">Suma</ion-button>
-      <ion-button (click)="irAExplicacion('resta')" expand="full">Resta</ion-button>
-      <ion-button (click)="irAExplicacion('multiplicacion')" expand="full">Multiplicación</ion-button>
-      <ion-button (click)="irAExplicacion('division')" expand="full">División</ion-button>
-    </ion-card-content>
-  </ion-card>
+  <div class="background-container"></div>
+
+  <ion-grid>
+    <ion-row>
+      <!-- Primer Card -->
+      <ion-col size="6" size-md="4" size-lg="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="center">Sumara, la Recolectora</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-avatar class="card-avatar">
+              <img src="{{imagensuma}}" alt="Sumara">
+            </ion-avatar>
+            <p class="villano-description">Sumara es un espíritu del fuego que ama las sumas. En poco tiempo te quemará si no las entiendes.</p>
+            <ion-button class="custom-button" (click)="irAExplicacion('suma')">Aprender</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Segundo Card -->
+      <ion-col size="6" size-md="4" size-lg="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Resteron, el Descontador</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-avatar class="card-avatar">
+              <img src="{{imagenresta}}" alt="Resteron">
+            </ion-avatar>
+            <p class="villano-description">Resteron es un viejo fantasma que aprendió a restar a sus enemigos. No dudará en usar su conocimiento contra ti.</p>
+            <ion-button class="custom-button" (click)="irAExplicacion('resta')">Aprender</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Tercer Card -->
+      <ion-col size="6" size-md="4" size-lg="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Multiplex, el Expansor</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-avatar class="card-avatar">
+              <img src="{{imagenmultiplicacion}}" alt="Multiplex">
+            </ion-avatar>
+            <p class="villano-description">Multiplex es un viejo guerrero obsesionado con multiplicar su fuerza hasta el límite. Aprende su técnica antes de retarlo.</p>
+            <ion-button class="custom-button" (click)="irAExplicacion('multiplicacion')">Aprender</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Cuarto Card -->
+      <ion-col size="6" size-md="4" size-lg="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Divisora, la Partidora</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-avatar class="card-avatar">
+              <img src="{{imagendivision}}" alt="Divisora">
+            </ion-avatar>
+            <p class="villano-description">Divisora es una antigua dríada que, al fracasar, adquirió la habilidad de dividir tu energía vital. ¿Se lo permitirás?</p>
+            <ion-button class="custom-button" (click)="irAExplicacion('division')">Aprender</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
