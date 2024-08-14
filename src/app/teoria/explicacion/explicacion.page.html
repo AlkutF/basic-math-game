@@ -9,6 +9,7 @@
 </ion-header>
 
 <ion-content>
+  <div class="background-container"></div>
   <ion-card>
     <ion-card-header>
       <ion-card-title>Explicación de {{ tipoOperacion }}</ion-card-title>
@@ -16,6 +17,15 @@
     <ion-card-content>
       <p>{{ explicacion }}</p>
       <img src="{{imagenes}}" alt="">
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Ejemplo con números</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ ejemplo }}</p>
+      <img src="{{imagenEjemplo}}" alt="">
     </ion-card-content>
   </ion-card>
   <ion-button class="custom-button" (click)="goToOperaciones(tipoOperacion)">Retar</ion-button>

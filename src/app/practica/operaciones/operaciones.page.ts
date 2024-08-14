@@ -160,7 +160,9 @@ export class OperacionesPage implements OnInit, OnDestroy {
   }
   
   mostrarVictoria() {
-    console.log('¡Has ganado!');
+    this.destroy$.next();
+    this.destroy$.complete();
+    this.router.navigate(['/ganar'],{ queryParams: { tiempo: this.tiempoRestante } });
   }
   
 
