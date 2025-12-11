@@ -230,8 +230,8 @@ Home
 
 ## 👨‍💻 Autor
 
-**Alexander Martinez**
-**Mateo Villafuete** 
+- Alexander Martinez
+- Mateo Villafuete
 
 ## 📄 Licencia
 
